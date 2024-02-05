@@ -17,6 +17,9 @@ public class SceneController : MonoBehaviour
         for (int i = 0; i < enemyCount; i++)
         {
             enemies[i] = Instantiate(enemyPrefab) as GameObject;
+            enemies[i].transform.position = spawnPoint;
+            float angle = Random.Range(0, 360);
+            enemies[i].transform.Rotate(0, angle, 0);
         }
     }
     // Update is called once per frame

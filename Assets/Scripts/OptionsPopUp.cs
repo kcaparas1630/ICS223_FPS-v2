@@ -2,21 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class OptionsPopUp : MonoBehaviour
+public class OptionsPopUp : BasePopup
 {
     [SerializeField] private UIController uiControl;
     [SerializeField] private SettingsPopUp settingsControl;
-    public void Open()
+    override public void Open()
     {
-        gameObject.SetActive(true);
+        base.Open();
     }
-    public void Close()
+    override public void Close()
     {
-        gameObject.SetActive(false);
-    }
-    public bool IsActive()
-    {
-        return gameObject.activeSelf;
+        base.Close();
     }
     public void OnSettingsButton()
     {

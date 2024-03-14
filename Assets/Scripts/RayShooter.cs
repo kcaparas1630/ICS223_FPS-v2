@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RayShooter : MonoBehaviour
+public class RayShooter : ActiveDuringGameplay
 {
     [SerializeField]
     private Camera cam;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseLook : MonoBehaviour
+public class MouseLook : ActiveDuringGameplay
 {
     public float speed = 50f;
     public float sensitivityHoriz = 9.0f;
@@ -16,7 +16,8 @@ public class MouseLook : MonoBehaviour
         MouseXAndY,
         MouseX,
         MouseY
-    }    
+    }
+    
     //public class-scope variable so it shows up in Inspector
     public RotationAxes axes = RotationAxes.MouseXAndY;
 

@@ -21,10 +21,18 @@ public class WanderingAI : MonoBehaviour
     private GameObject laserBeam;
     private float fireRate = 2.0f;
     private float nextFire = 0.0f;
+    float difficultySpeedDelta = 0.3f;
+    private float baseSpeed = 0.25f;
     // Start is called before the first frame update
     void Start()
     {
         state = EnemyStates.alive;
+    }
+
+    public void SetDifficulty(int difficulty)
+    {
+        Debug.Log("WanderingAI.SetDifficulty(" + difficulty + ")");
+        enemySpeed = baseSpeed + (difficulty * difficultySpeedDelta);
     }
 
     // Update is called once per frame

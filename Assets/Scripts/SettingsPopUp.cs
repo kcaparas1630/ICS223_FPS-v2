@@ -3,33 +3,26 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-public class SettingsPopUp : MonoBehaviour
+public class SettingsPopUp : BasePopup
 {
     [SerializeField] private TextMeshProUGUI difficultyValue;
     [SerializeField] private Slider sliderValue;
     [SerializeField] private OptionsPopUp options;
-    // Start is called before the first frame update
-    void Start()
+
+    override public void Open()
     {
-        
-    }
-    public void Open()
-    {
-        gameObject.SetActive(true);
+        base.Open();
         sliderValue.value = PlayerPrefs.GetInt("difficulty", 1);
         UpdateDifficulty(sliderValue.value);
     }
-    public void Close()
+    override public void Close()
     {
-        gameObject.SetActive(false);
-    }
-    public bool IsActive()
-    {
-        return gameObject.activeSelf;
+        base.Close();
     }
     public void OnOkButton()
     {
         PlayerPrefs.SetInt("difficulty", (int)sliderValue.value);
+        Messenger<int>.Broadcast(GameEvent.DIFFICULTY_CHANGED, (int)sliderValue.value);
         Close();
         options.Open();
     }

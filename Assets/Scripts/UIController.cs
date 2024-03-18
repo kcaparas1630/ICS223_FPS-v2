@@ -10,6 +10,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private Image crossHair;
     [SerializeField] private OptionsPopUp options;
     [SerializeField] private SettingsPopUp settings;
+    [SerializeField] private GameOverPopup gameOverPopup;
     private int popupsActive = 0;
     private void Awake()
     {
@@ -24,6 +25,10 @@ public class UIController : MonoBehaviour
         Messenger.RemoveListener(GameEvent.POPUP_OPENED, OnPopupOpened);
         Messenger.RemoveListener(GameEvent.POPUP_CLOSED, OnPopupClosed);
 
+    }
+    public void ShowGameOverPopup()
+    {
+        gameOverPopup.Open();
     }
     public void UpdateScore(int newScore)
     {
